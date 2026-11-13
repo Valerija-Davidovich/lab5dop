@@ -385,29 +385,30 @@ p { font-size: 16px; color: var(--text-muted); margin: 0; }
     grid-template-columns: 1fr 1fr;
     gap: var(--s-8);
     width: 100%;
-    align-items: stretch;     /* колонки на всю высоту грида */
+    align-items: start;  /* Обе колонки начинаются сверху */
 }
 
-/* Левая колонка: заголовок сверху, текст по центру, статистика прижата к низу */
 .about-block {
     display: flex;
     flex-direction: column;
+    /* Убрали padding-top */
 }
 
 .about-content {
-    flex: 1;                  /* занимает всё свободное место между заголовком и статистикой */
+    flex: 1;
     display: flex;
     gap: var(--s-4);
-    align-items: center;      /* svg и текст по вертикали по центру */
+    align-items: flex-start;  /* Декор и текст начинаются сверху */
+    /* Убрали margin-top */
 }
+
 .about-stats {
-    margin-top: auto;         /* прижимает к самому низу колонки */
+    margin-top: auto;
     display: flex;
     gap: 40px;
     padding-top: 24px;
     border-top: 1px solid var(--border-color);
 }
-
 /* Правая колонка: заголовок сверху, этапы сразу под ним */
 .stages-block {
     display: flex;
