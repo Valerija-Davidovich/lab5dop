@@ -371,11 +371,12 @@ p { font-size: 16px; color: var(--text-muted); margin: 0; }
    СЕКЦИЯ 2: КТО Я? + ЭТАПЫ РАБОТЫ
    ========================================= */
 .about-stages {
-    min-height: 100vh;        /* Высота ровно на один экран */
-    display: flex;            /* Включаем флекс для центрирования */
-    align-items: center;      /* Центрируем контент по вертикали */
-    padding: var(--s-8) 0;    /* Уменьшили отступ, чтобы контент не вылезал */
+    height: 100vh;            /* ровно экран */
+    display: flex;
+    align-items: stretch;     /* растягиваем грид на всю высоту */
+    padding: 100px 0 40px;    /* сверху воздух под шапку, снизу меньше */
     background-color: var(--bg-main);
+    box-sizing: border-box;
 }
  
 /* Важно: грид внутри должен занимать всю ширину, чтобы колонки не сжались */
@@ -383,13 +384,34 @@ p { font-size: 16px; color: var(--text-muted); margin: 0; }
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--s-8);
-    width: 100%;             /* Растягиваем на всю ширину контейнера */
+    width: 100%;
+    align-items: stretch;     /* колонки на всю высоту грида */
 }
- 
+
+/* Левая колонка: заголовок сверху, текст по центру, статистика прижата к низу */
+.about-block {
+    display: flex;
+    flex-direction: column;
+}
+
 .about-content {
+    flex: 1;                  /* занимает всё свободное место между заголовком и статистикой */
     display: flex;
     gap: var(--s-4);
-    align-items: flex-start;
+    align-items: center;      /* svg и текст по вертикали по центру */
+}
+.about-stats {
+    margin-top: auto;         /* прижимает к самому низу колонки */
+    display: flex;
+    gap: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Правая колонка: заголовок сверху, этапы сразу под ним */
+.stages-block {
+    display: flex;
+    flex-direction: column;
 }
  
 .about-decor {
@@ -1255,4 +1277,32 @@ p { font-size: 16px; color: var(--text-muted); margin: 0; }
     .stat-number {
         font-size: 32px;
     }
+}
+/* =========================================
+   СЕКЦИИ НА ВЕСЬ ЭКРАН
+   ========================================= */
+.other-works {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.other-works .container {
+    width: 100%;
+}
+
+.cooperation-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.cooperation-section .container {
+    width: 100%;
+}
+
+/* Чтобы обложка тоже была ровно на экран без скролла */
+.cover-section {
+    height: 100vh;
+    min-height: 100vh;
 }
